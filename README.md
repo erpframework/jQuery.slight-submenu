@@ -37,6 +37,7 @@ To use the plugin you need >= jQuery 1.8 and the plugin itself:
 ```javascript
 <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 <script src="js/jquery.slight-submenu.min.js"></script>
+```
 
 If you are not using inline css (plugin option), there is some mandatory css (for things to work) that you might want to include or copy contents from:
 
