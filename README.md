@@ -71,10 +71,11 @@ $('#master-menu').slightSubmenu({
     handlerForceClose: $.fn.slightSubmenu.handlerForceClose // receives a jQuery object (the $submenuUl) as an argument; hides the menu
 
 });
+```
 
+The referenced $.fn.slightSubmenu.* objects/functions look like this in the current version (1.0.0) of the plugin:
+ 
 ```javascript
-The referenced $.fn.slightSubmenu.* objects/functions look like this in the current version (1.0.0) of the plugin: 
-
 $.fn.slightSubmenu.handlerButtonIn = function($submenuUl) {
     $submenuUl.show(1000);
 };
