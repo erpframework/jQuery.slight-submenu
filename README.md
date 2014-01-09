@@ -37,6 +37,13 @@ To use the plugin you need >= jQuery 1.8 and the plugin itself:
 ```javascript
 <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 <script src="js/jquery.slight-submenu.min.js"></script>
+
+If you are not using inline css (plugin option), there is some mandatory css (for things to work) that you might want to include or copy contents from:
+
+```javascript
+<link rel="stylesheet" href="css/slight-submenu.css" />
+```
+
 ```
 After that you can simply apply the plugin to an element/s which has/have an UL (or is itself an UL) and has in his children LIs another UL (to become a submenu):
 
