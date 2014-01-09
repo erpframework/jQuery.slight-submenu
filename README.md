@@ -45,7 +45,6 @@ If you are not using inline css (plugin option), there is some mandatory css (fo
 <link rel="stylesheet" href="css/slight-submenu.css" />
 ```
 
-```
 After that you can simply apply the plugin to an element/s which has/have an UL (or is itself an UL) and has in his children LIs another UL (to become a submenu):
 
 ```javascript
