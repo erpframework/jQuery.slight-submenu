@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery Slight Submenu Plugin Demo</title>
+<link rel="stylesheet" href="css/slight-submenu.css" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.slight-submenu.js"></script>
+<style>
+
+body {
+    font-family: segoe ui;
+    padding: 0;
+    margin: 0;
+    background: #eee;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #616161;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+#demos-wrap {
+    padding: 1px 20px 80px;
+    background-color: #fff;
+    box-shadow: 0 0 3px;
+    margin: 20px auto;
+}
+
+#demos-wrap ul a {
+    color: #585858;
+    font-weight: bold;
+    font-family: arial, sans-serif;
+    text-decoration: none;
+}
+
+#demos-wrap ul {
+    padding-left: 40px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.slight-submenu-ul.absolute.horizontal {
+    position: absolute;
+    list-style-type: none;
+    top: 115px;
+}
+
+.slight-submenu-ul.absolute.horizontal li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.li-with-ul {
+    list-style-type: none;
+}
+
+.li-with-ul.unpadded > a {
+    margin-left: -18px;
+}
+
+#master-menu-horizontal-absolute {
+    margin-bottom: 100px;
+}
+
+</style>
+</head>
+<body>
+
+    <div id="demos-wrap" class="wrapper">
+    <h1>Slight Submenu jQuery plugin demos</h1>
+    <h2>The plain menu, nothing applied to it:</h2>
+    <ul>
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul>
+                <li><a href="#">2.Sub menu link 1</a></li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>Overview</h2>
+    
+    <h3>What does it do?</h3>
+    <p> So here's how it goes: the plugin iterates over the first level of nested ULs in the list items of the <em>first top ul that it found</em> (or if it was directly applied to one it would iterate its LIs). Hides them and places a button inside of every corresponding li. Those buttons control the showing of their corresponding submenu. Their behaviour is highly configurable. Choose whether to have a single submenu opened, specify the events that activate the buttons, use your opening/closing submenu callbacks and more.</p>
+    <h3>Default events for the buttons</h3>
+    <p>When the button is <em>activated</em>, we get a submenu opened. What events will trigger this is configurable, by default: 'mouseenter' and 'click', that is, when hovering and clicking the given button. The events that trigger the opposite (close the submenu) are assumed to be the same that open it. This can also be configured. The difference here is that we specify what to exclude (events that should not close the submenu if it is opened, by default: 'mouseenter' only). This will get cleared for you in the demos.</p>
+    <h3>Opening and closing submenu callbacks.</h3>
+    <p>The open and close submenu callbacks also can be replaced (as first parameter they receive the $submenu ul to be processed as a jQuery object - all the power of jQuery in your hands) which means the animation can be altered in any way we like or simply removed. This is a plugin that is responsible mainly for some programmatic behavior and it has very little css to it. I added an option to turn inline css on so that it is applied directly in the html (ofcourse you can configure it in the options). All of the defaults can also be replaced globally as they are publicly exposed. There are a few more options though that will be introduced in the demos and in the description of the options.</p>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 1: defaults</h2>
+    <p>This is the plugin with its default settings.</p>
+    <ul id="master-menu">
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul>
+                <li><a href="#">2.Sub menu link 1</a></li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 2: a weird variation - one opened submenu only, fixed position and click-won't close.</h2>
+    <p>Okay, a little awkward example.</p>
+    <p>As we are placing the submenus at a fixed position the option that allows multiple opened submenus is set to false. Also closing events are disabled so that a submenu is always opened. The events that are allowed to open a submenu through the buttons are the defaults ('click' and 'mouseenter') which means it should work on mobile devices too.</p>
+    <nav id="master-menu-horizontal-absolute">
+        <ul class="horizontal absolute">
+            <li><a href="#">Top link 1</a></li>
+            <li><a href="#">Top link 2</a></li>
+            <li><a href="#">Top link 3</a>
+                <ul>
+                    <li><a href="#">1.Sub menu link 1</a></li>
+                    <li><a href="#">1.Sub menu link 2</a></li>
+                    <li><a href="#">1.Sub menu link 3</a></li>
+                </ul></li>
+            <li><a href="#">Top link 4</a></li>
+            <li><a href="#">Top link 5</a>
+                <ul>
+                    <li><a href="#">2.Sub menu link 1</a></li>
+                    <li><a href="#">2.Sub menu link 2</a></li>
+                    <li><a href="#">2.Sub menu link 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    </div>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 3: For the old fashioned guys. No transitions.</h2>
+    <p>This demo makes use of the possibility to replace the open/close submenu callbacks.</p>
+    <ul id="master-menu-horizontal-no-transition">
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul></li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul>
+                <li><a href="#">2.Sub menu link 1</a></li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 4: Click only</h2>
+    <p></p>
+    <ul id="master-menu-clickonly">
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul></li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul>
+                <li><a href="#">2.Sub menu link 1</a></li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 5: Click only with single submenu.</h2>
+    <p>When opening a submenu any other submenus will be closed.</p>
+    <ul id="master-menu-clickonly-single">
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul></li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul>
+                <li><a href="#">2.Sub menu link 1</a></li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 6: Click only, single submenu allowed with closing-on-click disabled</h2>
+    <p>This example shows you the possibility to only be able to open a submenu ('click' for the closing events is disabled and only 'click' is given the opportunity to open a submenu). As only a single submenu is allowed at a time, the only thing that will close one is opening another one.</p>
+    <ul id="master-menu-clickonly-single-openonly">
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul></li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul>
+                <li><a href="#">2.Sub menu link 1</a></li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 7: a few more little extras - deeper nesting of elements, changing button position and style (inline).</h2>
+    <p>Deeper nesting of html elements. This demo shows that you can apply the plugin to an element which is not directly the top ul. This applies to the nested ULs too. </p>
+    <p>I am changing the inline styles here but this can simply be done through css. Notice that if 'inline styles' option is on, you don't need the default external css anymore.</p>
+    <p>The option 'prependButtons' is on and the buttons are placed in the beginning of their parent list item (otherwise they well be placed right before the UL).</p>
+    <nav id="master-menu-deeper-nesting">
+        <ul>
+            <li><a href="#">Top link 1</a></li>
+            <li><a href="#">Top link 2</a></li>
+            <li><a href="#">Top link 3</a>
+                <div>
+                	<div>
+                        <ul>
+                            <li><a href="#">1.Sub menu link 1</a></li>
+                            <li><a href="#">1.Sub menu link 2</a></li>
+                            <li><a href="#">1.Sub menu link 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">Top link 4</a></li>
+            <li><a href="#">Top link 5</a>
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="#">2.Sub menu link 1</a></li>
+                            <li><a href="#">2.Sub menu link 2</a></li>
+                            <li><a href="#">2.Sub menu link 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    </div>
+    
+    <h2><em>Wow. This shit seems nice! Why not make it the default, by default??</em></h2>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 8: overriding defaults.</h2>
+    <p>Notice how no options are passed as the defaults are already altered.</p>
+    <ul id="master-menu-overriden-defaults">
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul></li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul>
+                <li><a href="#">2.Sub menu link 1</a></li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    
+    <div class="single-demo-wrap">
+    <h2>Demo 9: multilevel nesting.</h2>
+    <p>Yes, this is possible, though you surely will have to redefine some styles. You need to note that the multinesting is not automatic (you need to apply the plugin to every element that has one level nested ul). The cool thing is that each nesting level is autonomous and won't affect any other.</p>
+    <ul class="with-submenu">
+        <li><a href="#">Top link 1</a></li>
+        <li><a href="#">Top link 2</a></li>
+        <li><a href="#">Top link 3</a>
+            <ul>
+                <li><a href="#">1.Sub menu link 1</a></li>
+                <li><a href="#">1.Sub menu link 2</a></li>
+                <li><a href="#">1.Sub menu link 3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Top link 4</a></li>
+        <li><a href="#">Top link 5</a>
+            <ul class="with-submenu">
+                <li><a href="#">2.Sub menu link 1</a>
+                    <ul>
+                        <li><a href="#">2.2.Sub menu link 1</a></li>
+                        <li><a href="#">2.2.Sub menu link 2</a></li>
+                        <li><a href="#">2.2.Sub menu link 3</a></li>
+                        <li><a href="#">2.2.Sub menu link 4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">2.Sub menu link 2</a></li>
+                <li><a href="#">2.Sub menu link 3</a>
+                    <ul>
+                    	<li><a href="#">2.2.Sub menu link 1</a></li>
+                    	<li><a href="#">2.2.Sub menu link 2</a></li>
+                    	<li><a href="#">2.2.Sub menu link 3</a></li>
+                    	<li><a href="#">2.2.Sub menu link 4</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    </div>
+    <script src="js/demo.js"></script>
+</body>
+</html>
