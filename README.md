@@ -2,7 +2,7 @@
 
 ## Why is this?
 
-For the single purpose of automation nested menu management with the slight presence of javascript.
+For the single purpose of automating nested menu management with the slight presence of javascript.
 
 ## Short overview
 
@@ -11,7 +11,7 @@ For the single purpose of automation nested menu management with the slight pres
 - lets you configure every aspect of the plugin in any way you want - setting button events of your choice, modifying added css classes, executed callbacks, even overriding defaults globally
 
 ### Features:
-- very easy to use and just a few kilobytes in size with full control over every aspect that the plugin;
+- very easy to use and just a few kilobytes in size with full control over every aspect that the plugin touches;
 - *does not shadow* any **a**'s hrefs (this is why buttons are used to expand/collapse submenus);
 - possibility to replace defaults globally
 - almost no css, as this plugin is intended to add behavior so its up to you how things will look
@@ -37,7 +37,7 @@ To use the plugin you need >= jQuery 1.8 and the plugin itself:
 ```javascript
 <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 <script src="js/jquery.slight-submenu.min.js"></script>
- ```
+```
 After that you can simply apply the plugin to an element/s which has/have an UL (or is itself an UL) and has in his children LIs another UL (to become a submenu):
 
 ```javascript
@@ -107,3 +107,5 @@ $.fn.slightSubmenu.handlerButtonIn = function($submenuUl) {
     // code
 };
  ```
+ 
+Have fun using the plugin! 
