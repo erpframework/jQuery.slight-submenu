@@ -11,7 +11,7 @@ $('#master-menu-horizontal-absolute').slightSubmenu({
 	submenuUlClass : $.fn.slightSubmenu.defaults.submenuUlClass
 			+ ' horizontal absolute',
 	multipleSubmenusOpenedAllowed : false,
-	buttonCloseSubmenuEvents : 'mouseenter click'
+	buttonCloseNotSubmenuEvents : 'mouseenter click'
 });
 
 // Demo 3
@@ -38,7 +38,7 @@ $('#master-menu-clickonly-single').slightSubmenu({
 // Demo 6
 $('#master-menu-clickonly-single-openonly').slightSubmenu({
 	buttonActivateEvents : 'click',
-	buttonCloseSubmenuEvents : 'click',
+	buttonCloseNotSubmenuEvents : 'click',
 	multipleSubmenusOpenedAllowed : false
 });
 

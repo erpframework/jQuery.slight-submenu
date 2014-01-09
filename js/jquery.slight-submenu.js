@@ -72,7 +72,7 @@
 					return;
 				}
 				
-				if ($.inArray(event.type, settings.buttonCloseSubmenuEvents.split(/\s+/)) 
+				if ($.inArray(event.type, settings.buttonCloseNotSubmenuEvents.split(/\s+/)) 
 						<= -1 && $submenuUl.is(':visible')
 						&& !$submenuUl.is(':animated')) {
 					
@@ -132,7 +132,7 @@
 
 	$.fn.slightSubmenu.defaults = {
 		buttonActivateEvents: 'click mouseenter',
-		buttonCloseSubmenuEvents: 'mouseenter',
+		buttonCloseNotSubmenuEvents: 'mouseenter',
 		multipleSubmenusOpenedAllowed: true,
 		prependButtons: false,
 		applyInlineCss: false,
