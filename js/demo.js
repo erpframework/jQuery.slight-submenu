@@ -1,4 +1,4 @@
-$('a').on('click', function(ev) {
+$('.single-demo-wrap a').on('click', function(ev) {
 	// just to make sure the page won't scroll to the top
 	ev.preventDefault();
 });
