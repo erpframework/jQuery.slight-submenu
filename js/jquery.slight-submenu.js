@@ -1,6 +1,6 @@
 /*
  * jQuery Slight Submenu plugin
- * Version 1.0.1
+ * Version 1.0.2
  * Author: Velidar Petrov
  * Licensed under the MIT license
  */
