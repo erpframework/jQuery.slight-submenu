@@ -1,0 +1,42 @@
+{
+    "name": "slight-submenu",
+    "title": "jQuery Slight Submenu",
+    "description": "A jQuery plugin for automating nested menu management (expand/collapse) with high configurability and flexibility.",
+    "keywords": [
+        "nested",
+        "multiple",
+        "submenu",
+        "navigation",
+        "animation",
+        "slight",
+        "button",
+        "jquery",
+        "accordion",
+        "ui",
+        "expand",
+        "collapse",
+        "open",
+        "close"
+    ],
+    "version": "v1.0.0",
+    "author": {
+        "name": "Velidar Petrov"
+    },
+    "maintainers": [
+        {
+            "name": "Velidar Petrov"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "home": "https://github.com/velidar/jQuery.slight-submenu",
+    "demo": "http://velidar.github.io/jQuery.slight-submenu/",
+    "bugs": "https://github.com/velidar/jQuery.slight-submenu/issues",
+    "dependencies": {
+        "jquery": ">=1.8"
+    }
+}
