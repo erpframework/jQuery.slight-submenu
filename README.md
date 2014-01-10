@@ -26,8 +26,6 @@ For a showcase of those features you can have a look at the GitHubPages [demo pa
 - only a single submenu (UL) in a LI is supported and will work as expected;
 - I can't think of any other major limitations;
 
-### Version: 1.0.0
-
 ### Min jQuery version: 1.8
 
 ## Plugin options and usage:
