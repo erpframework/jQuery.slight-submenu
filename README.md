@@ -76,15 +76,10 @@ $('#master-menu').slightSubmenu({
     handlerButtonIn: $.fn.slightSubmenu.handlerButtonIn,    // receives a jQuery object (the $submenuUl) as an argument; makes the menu visible
     handlerForceClose: $.fn.slightSubmenu.handlerForceClose // receives a jQuery object (the $submenuUl) as an argument; hides the menu
     handlerGenerateButtonMarkup: $.fn.slightSubmenu.handlerGenerateButtonMarkup // allows for custom submenu button markup 
-    // receives a string (for the class) as first argument;
-    // default looks like this (and the passed argument is settings.buttonClass): 
-    // function(buttonClass) {
-    //     return '<span class="' + buttonClass + '"></span>';
-    // };
 });
 ```
 
-The referenced $.fn.slightSubmenu.* objects/functions look like this in the current version (1.0.0) of the plugin:
+The referenced $.fn.slightSubmenu.* objects/functions look like this:
  
 ```javascript
 $.fn.slightSubmenu.handlerButtonIn = function($submenuUl) {
@@ -93,6 +88,11 @@ $.fn.slightSubmenu.handlerButtonIn = function($submenuUl) {
 
 $.fn.slightSubmenu.handlerForceClose = function($submenuUl) {
     $submenuUl.hide(1000);
+};
+
+// the passed argument, by default is settings.buttonClass
+$.fn.slightSubmenu.handlerGenerateButtonMarkup = function(buttonClass) {
+    return '<span class="' + buttonClass + '"></span>';
 };
 
 $.fn.slightSubmenu.defTopContainerInlineCss = { position: 'relative' };
