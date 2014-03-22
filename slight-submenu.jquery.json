@@ -18,7 +18,7 @@
         "open",
         "close"
     ],
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": {
         "name": "Velidar Petrov"
     },
@@ -36,6 +36,7 @@
     "home": "https://github.com/velidar/jQuery.slight-submenu",
     "demo": "http://velidar.github.io/jQuery.slight-submenu/",
     "bugs": "https://github.com/velidar/jQuery.slight-submenu/issues",
+    "docs": "https://github.com/velidar/jQuery.slight-submenu",
     "dependencies": {
         "jquery": ">=1.8"
     }

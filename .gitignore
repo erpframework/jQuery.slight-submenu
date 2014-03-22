@@ -37,3 +37,7 @@ local.properties
 
 js/jquery-*
 
+######################
+# Netbeans
+######################
+/nbproject/private/

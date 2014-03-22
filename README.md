@@ -24,6 +24,7 @@ For a showcase of those features you can have a look at the GitHubPages [demo pa
 
 ### Limitations:
 - only a single submenu (UL) in a LI is supported and will work as expected;
+- currently, opening/closing a submenu always uses a "submenu button" (for now you cannot delegate this responsibility directly to the corresponding &lt;a&gt; next to the button) though you can emulate the behaviour
 - I can't think of any other major limitations;
 
 ### Min jQuery version: 1.8
@@ -74,7 +75,12 @@ $('#master-menu').slightSubmenu({
     // callbacks that control the way the currently processed submenu is managed
     handlerButtonIn: $.fn.slightSubmenu.handlerButtonIn,    // receives a jQuery object (the $submenuUl) as an argument; makes the menu visible
     handlerForceClose: $.fn.slightSubmenu.handlerForceClose // receives a jQuery object (the $submenuUl) as an argument; hides the menu
-
+    handlerGenerateButtonMarkup: $.fn.slightSubmenu.handlerGenerateButtonMarkup // allows for custom submenu button markup 
+    // receives a string (for the class) as first argument;
+    // default looks like this (and the passed argument is settings.buttonClass): 
+    // function(buttonClass) {
+    //     return '<span class="' + buttonClass + '"></span>';
+    // };
 });
 ```
 
@@ -104,7 +110,7 @@ $.fn.slightSubmenu.defButtonInlineCss = {
     cursor: 'pointer'   // this might be the difference 
                         // between the 'click' working on iOS and not
 };
- ```
+```
 
 You can guess you can replace (globally) any of that with your own defaults as it is all public.
 

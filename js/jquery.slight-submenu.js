@@ -1,6 +1,6 @@
 /*
  * jQuery Slight Submenu plugin
- * Version 1.0.2
+ * Version 1.0.3
  * Author: Velidar Petrov
  * Licensed under the MIT license
  */
@@ -22,7 +22,8 @@
 				$this.css(settings.topContainerInlineCss);
 				$liItems.css(settings.directLiInlineCss);
 			}
-			
+
+			var buttonMarkup = settings.handlerGenerateButtonMarkup(settings.buttonClass);
 			$liItems.each(function() {
 				var $this = $(this);
 				var $submenu = $('ul:first', this);
@@ -35,8 +36,7 @@
 					$submenu.hide(0);
 					$submenu.addClass(settings.submenuUlClass);
 
-					var $submenuButton = $('<span class="' + settings.buttonClass
-							+ '"></span>');
+					var $submenuButton = $(buttonMarkup);
 					if (settings.applyInlineCss) {
 						$submenuButton.css(settings.buttonInlineCss);
 						$submenu.css(settings.submenuUlInlineCss);
@@ -68,14 +68,12 @@
 				var $this = $(this);
 				var $submenuUl = $this.parents('li').eq(0).find('ul:first'); 
 					
-				if ($submenuUl.is(':animated')) {
+				if ($submenuUl.is(':animated') ||  $submenuUl.find('> li').is(':animated')) {
 					return;
 				}
 				
 				if ($.inArray(event.type, settings.buttonCloseNotSubmenuEvents.split(/\s+/)) 
-						<= -1 && $submenuUl.is(':visible')
-						&& !$submenuUl.is(':animated')) {
-					
+						<= -1 && $submenuUl.is(':visible')) {
 					onSubmenuButtonClose($this);
 					settings.handlerForceClose($submenuUl);
 					return;
@@ -91,6 +89,8 @@
 						});
 					if ($stillVisible.length) {
 						onSubmenuButtonClose($this);
+						$stillVisible.parent().find('.' + settings.buttonSubmenuOpenedClass).
+							removeClass(settings.buttonSubmenuOpenedClass);
 						settings.handlerForceClose($stillVisible);
 					}
 				}
@@ -99,7 +99,10 @@
 				if (settings.applyInlineCss) {
 					$this.css(settings.buttonActiveInlineCss);
 				}
-				settings.handlerButtonIn($submenuUl);
+				
+				if (!$submenuUl.is(':visible')) {
+					settings.handlerButtonIn($submenuUl);
+				}
 			});
 
 		});
@@ -112,6 +115,10 @@
 
 	$.fn.slightSubmenu.handlerForceClose = function($submenuUl) {
 		$submenuUl.hide(1000);
+	};
+	
+	$.fn.slightSubmenu.handlerGenerateButtonMarkup = function(buttonClass) {
+		return '<span class="' + buttonClass + '"></span>';
 	};
 
 	$.fn.slightSubmenu.defTopContainerInlineCss = { position: 'relative' };
@@ -148,6 +155,7 @@
 		buttonInlineCss: $.fn.slightSubmenu.defButtonInlineCss,
 		buttonActiveInlineCss: $.fn.slightSubmenu.defButtonActiveInlineCss,
 		handlerButtonIn: $.fn.slightSubmenu.handlerButtonIn,
-		handlerForceClose: $.fn.slightSubmenu.handlerForceClose 
+		handlerForceClose: $.fn.slightSubmenu.handlerForceClose,
+		handlerGenerateButtonMarkup: $.fn.slightSubmenu.handlerGenerateButtonMarkup
 	};
 })(jQuery, window, document);

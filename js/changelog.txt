@@ -1,0 +1,12 @@
+
+1.1.0
+
+- fixed a bug - when animating the list items individually the submenu was
+    not considered "animated";
+- fixed a bug - TODO - (check if applicable) another safe check towards the need of
+    opening a menu was added
+    
+- fixed a bug - the 'opened' class for the buttons was not removed when closing the menu 
+    from the other submenu buttons when only a single submenu is allowed
+
+- added - a callback defining the html for the generated buttons;
