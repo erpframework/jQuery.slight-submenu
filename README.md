@@ -20,6 +20,7 @@ For the single purpose of automating nested menu management with the slight pres
 - deep nesting (loose, even uneven structure, no pun intended) for fine control even in the most markup-twisted situation or for custom scenarios (say an accordeon)
 - supports even ie7+ (keep in mind that jQuery 2.* and upwards does not support < IE9 and if you use that, no support for those old browsers)
 
+### Demo
 For a showcase of those features you can have a look at the GitHubPages [demo page](http://velidar.github.io/jQuery.slight-submenu/) or the demo page which is included with the plugin.
 
 ### Limitations:
